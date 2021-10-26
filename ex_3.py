@@ -41,6 +41,6 @@ global_data = data["total"]
 print("Global Data:")
 print("----------------")
 
-print("Country", "Confirmed", "Today Confirmed", "Deaths", "Today's Deaths", sep=" // ")
-print(get_country_name(),get_confirmed(),get_today_confirmed(),get_deaths(),get_today_deaths(), sep=" // ")
-print("World",get_global_confirmed(),get_global_today_confirmed(),get_global_deaths(),get_global_today_deaths(), sep=" // ")
+print("Country", "Confirmed", "Today Confirmed", "Deaths", "Today's Deaths", sep="\t")
+print(get_country_name(),get_confirmed(),get_today_confirmed(),get_deaths(),get_today_deaths(), sep="\t")
+print("World",get_global_confirmed(),get_global_today_confirmed(),get_global_deaths(),get_global_today_deaths(), sep="\t")
