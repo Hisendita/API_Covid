@@ -25,12 +25,17 @@ I get from de dictionary data the key of the city I need and save it --> city_ke
 
 Once more I open a request modifying the url from the API with the city_key and I would get
 from the dictionary given something to show on
+
+SOLVED --> Only able to request 50 times a day.
+UPDATED --> Modified to get temperature of the city and a simple description about the weather.
 """
-
 city_key = data["Key"]
+city_name = data["LocalizedName"]
 
-url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/"+city_key+"?apikey="+api_key+"&metric=true"
+url = "http://dataservice.accuweather.com/currentconditions/v1/"+city_key+"?apikey="+api_key+""
 response = requests.request("GET", url, verify=False)
-data = dict(json.loads(response.text))
+data = json.loads(response.text)
+data = dict(data[0])
 
-print("Forecast for", location, data["Headline"]["Text"])
+print("Temperature for", city_name,":", data["Temperature"]["Metric"]["Value"],"ºC")
+print("Forecast:",data["WeatherText"])
